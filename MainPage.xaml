@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:local="clr-namespace:ChaudronNoir.Classes"
+             x:Class="ChaudronNoir.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Grid ColumnDefinitions="*, *"
+                  RowDefinitions="Auto, Auto, *, *, *, *, *, *, *, Auto, *, *, *, *"
+                  Margin="20">
+
+                <Label Text="Stats principales" Style="{StaticResource labelTitle}" 
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                <Label Text="{Binding Habilete, StringFormat='Habilete : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="1" Grid.Column="0"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Habilete}"
+                         Grid.Row="2" Grid.Column="0"/>
+
+                <Label Text="{Binding Adresse, StringFormat='Adresse : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="1" Grid.Column="1"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Adresse}"
+                         Grid.Row="2" Grid.Column="1"/>
+
+                <Label Text="{Binding Endurance, StringFormat='Endurance : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="3" Grid.Column="0"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Endurance}"
+                         Grid.Row="4" Grid.Column="0"/>
+
+                <Label Text="{Binding ChanceMax, StringFormat='Chance Max : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="3" Grid.Column="1"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding ChanceMax}"
+                         Grid.Row="4" Grid.Column="1"/>
+
+                <Label Text="{Binding PVMax, StringFormat='PV Max : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="5" Grid.Column="0"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding PVMax}"
+                         Grid.Row="6" Grid.Column="0"/>
+
+                <Label Text="{Binding Armure, StringFormat='Armure : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="5" Grid.Column="1"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Armure}"
+                         Grid.Row="6" Grid.Column="1"/>
+
+                <Label Text="{Binding Degats, StringFormat='Dégâts : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="7" Grid.Column="0"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Degats}"
+                         Grid.Row="8" Grid.Column="0"/>
+
+                <Label Text="{Binding Critique, StringFormat='Critique : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="7" Grid.Column="1"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Critique}"
+                         Grid.Row="8" Grid.Column="1"/>
+
+                <Label Text="Suivi de l'aventure" Style="{StaticResource labelTitle}"
+                       HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+                <HorizontalStackLayout HorizontalOptions="Center" HeightRequest="40"
+                    Grid.Row="10" Grid.Column="0">
+                    <Label Text="{Binding PVAct, StringFormat='PV : {0}'}" VerticalOptions="Fill" VerticalTextAlignment="End"/>
+                    <Label Text="{Binding PVMax, StringFormat='/{0}'}" VerticalOptions="Fill" VerticalTextAlignment="End"/>
+                </HorizontalStackLayout>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding PVAct}"
+                         Grid.Row="11" Grid.Column="0"/>
+                
+                <HorizontalStackLayout HorizontalOptions="Center"
+                    Grid.Row="10" Grid.Column="1">
+                    <Label Text="{Binding ChanceAct, StringFormat='Chance : {0}'}" HeightRequest="40" VerticalTextAlignment="End"/>
+                    <Label Text="{Binding ChanceMax, StringFormat='/{0}'}" HeightRequest="40" VerticalTextAlignment="End"/>
+                </HorizontalStackLayout>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding ChanceAct}"
+                         Grid.Row="11" Grid.Column="1"/>
+
+                <Label Text="{Binding Gloire, StringFormat='Gloire : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="12" Grid.Column="0"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Gloire}"
+                         Grid.Row="13" Grid.Column="0"/>
+
+                <Label Text="{Binding Richesse, StringFormat='Richesse : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
+                       Grid.Row="12" Grid.Column="1"/>
+                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Richesse}"
+                         Grid.Row="13" Grid.Column="1"/>
+                
+                
+            </Grid>
+            
+            <Label Text="Objets" Style="{StaticResource Key=labelTitle}"/>
+
+            <Grid Margin="20"
+              ColumnSpacing="10"
+              ColumnDefinitions="*, Auto">
+
+                <Entry x:Name="etrObject" Placeholder="Nom de l'objet" 
+                       Grid.Column="0"/>
+                <Button x:Name="btnAddObj" Text="Ajouter" Clicked="btnAddObjectClick"
+                        Grid.Column="1"/>
+
+            </Grid>
+
+            <ListView x:Name="lstObject" ItemsSource="{Binding objetsList}"
+                    Margin="20">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Margin="10,0,0,0"
+                            Text="Liste de vos objets"
+                            FontSize="12"
+                            FontAttributes="Bold"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Nom}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="btnSuppObjet" Text="Supprimer" Clicked="btnSuppObjet_Clicked"
+                    HorizontalOptions="End" Margin="0,0,20,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
