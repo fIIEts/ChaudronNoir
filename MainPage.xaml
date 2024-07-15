@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
              xmlns:local="clr-namespace:ChaudronNoir.Classes"
-             x:Class="ChaudronNoir.MainPage">
+             x:Class="ChaudronNoir.MainPage"
+             Shell.TitleColor="#D83A50">
 
     <ScrollView>
         <VerticalStackLayout>
@@ -123,7 +124,7 @@
             </ListView>
 
             <Button x:Name="btnSuppObjet" Text="Supprimer" Clicked="btnSuppObjet_Clicked"
-                    HorizontalOptions="End" Margin="0,0,20,0"/>
+                    HorizontalOptions="End" Margin="0,0,20,30"/>
 
         </VerticalStackLayout>
     </ScrollView>

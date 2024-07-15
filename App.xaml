@@ -10,6 +10,10 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#FF7587"/>
+            </Style>
+
             <Style TargetType="Label">
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
@@ -17,9 +21,9 @@
 
             <Style TargetType="Label" x:Key="labelTitle">
                 <Setter Property="FontSize" Value="Large"/>
-                <Setter Property="TextColor" Value="Black"/>                
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
