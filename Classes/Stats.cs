@@ -230,6 +230,21 @@ public class Stats : INotifyPropertyChanged
         _richesse = 0;
     }
 
+    public void Reset()
+    {
+        Habilete = 2;
+        Adresse = 1;
+        Endurance = 2;
+        PVMax = Endurance * 3;
+        ChanceMax = 0;
+        Armure = 0;
+        Degats = 0;
+        Critique = 0;
+        Gloire = 0;
+        Richesse = 0;
+        OnPropertyChanged();
+    }
+
     public void OnPropertyChanged([CallerMemberName] string name = "") =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
