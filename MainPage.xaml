@@ -100,7 +100,19 @@
                          Grid.Row="13" Grid.Column="1"/>
                 
             </Grid>
-            
+
+            <Label Text="Chapitre" Style="{StaticResource Key=labelTitle}"/>
+
+            <Grid Margin="20"
+              ColumnSpacing="10"
+              ColumnDefinitions="Auto, Auto">
+
+                <Label Text="Chapitre en cours : " Grid.Column="0"/>
+
+                <Entry x:Name="etrLastChapter" Keyboard="Numeric" Grid.Column="1"/>
+                
+            </Grid>
+
             <Label Text="Objets" Style="{StaticResource Key=labelTitle}"/>
 
             <Grid Margin="20"

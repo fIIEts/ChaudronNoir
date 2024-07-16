@@ -64,6 +64,16 @@ namespace ChaudronNoir
                     lstObject.ItemsSource = objetsList;
                 }
             }
+
+            etrLastChapter.Text = Preferences.Get("LastChapter", "1");
+        }
+        //-------------------------------------------------------------------
+
+        // Sauvegarde les données sur l'appareil
+        private async void btnSave_Clicked(object sender, EventArgs e)
+        {
+            SaveData();
+            await DisplayAlert("Sauvegarde", "Partie sauvegardée", "Ok");
         }
         //-------------------------------------------------------------------
 
@@ -88,6 +98,11 @@ namespace ChaudronNoir
 
             var serializedObjets = JsonSerializer.Serialize(objetsList);
             File.WriteAllText(fileObjets, serializedObjets);
+
+            if (etrLastChapter.Text != string.Empty)
+            {
+                Preferences.Set("LastChapter", etrLastChapter.Text);
+            }
         }
         //-------------------------------------------------------------------
 
@@ -135,15 +150,10 @@ namespace ChaudronNoir
                 {
                     File.Delete(fileObjets);
                 }
-            }
-        }
-        //-------------------------------------------------------------------
 
-        // Sauvegarde les données sur l'appareil
-        private async void btnSave_Clicked(object sender, EventArgs e)
-        {
-            SaveData();
-            await DisplayAlert("Sauvegarde", "Partie sauvegardée", "Ok");
+                Preferences.Clear();
+                etrLastChapter.Text = "1";
+            }
         }
         //-------------------------------------------------------------------
     }
