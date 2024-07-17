@@ -36,7 +36,7 @@
 
                 <Label Text="{Binding Adresse, StringFormat='Adresse : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
                        Grid.Row="1" Grid.Column="1"/>
-                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding Adresse}"
+                <Stepper Minimum="0" Maximum="5" Increment="1" Value="{Binding Adresse}"
                          Grid.Row="2" Grid.Column="1"/>
 
                 <Label Text="{Binding Endurance, StringFormat='Endurance : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
@@ -51,7 +51,7 @@
 
                 <Label Text="{Binding PVMax, StringFormat='PV Max : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
                        Grid.Row="5" Grid.Column="0"/>
-                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding PVMax}"
+                <Stepper Minimum="0" Maximum="100" Increment="1" Value="{Binding PVMax}"
                          Grid.Row="6" Grid.Column="0"/>
 
                 <Label Text="{Binding Armure, StringFormat='Armure : {0}'}" HeightRequest="40" VerticalTextAlignment="End"
@@ -78,7 +78,7 @@
                     <Label Text="{Binding PVAct, StringFormat='PV : {0}'}" VerticalOptions="Fill" VerticalTextAlignment="End"/>
                     <Label Text="{Binding PVMax, StringFormat='/{0}'}" VerticalOptions="Fill" VerticalTextAlignment="End"/>
                 </HorizontalStackLayout>
-                <Stepper Minimum="0" Maximum="20" Increment="1" Value="{Binding PVAct}"
+                <Stepper Minimum="0" Maximum="100" Increment="1" Value="{Binding PVAct}"
                          Grid.Row="11" Grid.Column="0"/>
                 
                 <HorizontalStackLayout HorizontalOptions="Center"

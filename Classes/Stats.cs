@@ -44,7 +44,14 @@ public class Stats : INotifyPropertyChanged
         {
             if (_adresse != value)
             {
-                _adresse = value;
+                if (value > 5)
+                {
+                    _adresse = 5;
+                }
+                else
+                {
+                    _adresse = value;
+                }
                 OnPropertyChanged();
             }
         }
@@ -221,7 +228,7 @@ public class Stats : INotifyPropertyChanged
         _endurance = 2;
         _pvMax = _endurance * 3;
         _pvAct = _pvMax;
-        _chanceMax = 0;
+        _chanceMax = 3;
         _chanceAct = _chanceMax;
         _armure = 0;
         _degats = 0;
@@ -236,7 +243,7 @@ public class Stats : INotifyPropertyChanged
         Adresse = 1;
         Endurance = 2;
         PVMax = Endurance * 3;
-        ChanceMax = 0;
+        ChanceMax = 3;
         Armure = 0;
         Degats = 0;
         Critique = 0;
